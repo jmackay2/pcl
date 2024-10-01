@@ -10,6 +10,11 @@ else()
   set(DEFAULT TRUE)
 endif()
 
+if(CMAKE_SYSTEM_PROCESSOR MATCHES "arm|aarch64")
+  set(DEFAULT FALSE)
+  set(REASON "gpu_people requires SSE and does not support ARM")
+ endif()
+
 PCL_SUBSYS_OPTION(build ${SUBSYS_NAME} ${SUBSYS_DESC} ${DEFAULT} ${REASON})
 PCL_SUBSYS_DEPEND(build NAME ${SUBSYS_NAME} DEPS ${SUBSYS_DEPS})
 mark_as_advanced("BUILD_${SUBSYS_NAME}")
