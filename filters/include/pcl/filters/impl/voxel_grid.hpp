@@ -791,7 +791,7 @@ pcl::VoxelGrid<PointT>::applyFilter (PointCloud &output)
           boost::sort::spreadsort::integer_sort(begin, end, right_shift_func);
           return;
         }
-        it mid = begin + n / 2;
+        auto mid = begin + n / 2;
         #pragma omp task firstprivate(begin, mid)
         sort(begin, mid);
         #pragma omp task firstprivate(mid, end)
