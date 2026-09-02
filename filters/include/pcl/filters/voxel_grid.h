@@ -549,7 +549,7 @@ namespace pcl
 
       private:
       /** \brief Number of threads used during filtering */
-      size_t num_threads_{0};
+      size_t num_threads_{1};
   };
 
   /** \brief VoxelGrid assembles a local 3D grid over a given PointCloud, and downsamples + filters the data.
